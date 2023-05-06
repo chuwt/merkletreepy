@@ -1,4 +1,4 @@
-# merletreepy
+# merkletreepy
 
 Generating the proof and root which can be used for merkle validation in Solidity for airdrop.
 
