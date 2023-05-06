@@ -21,3 +21,6 @@ print(wl.get_proof_by_address("0x0000000000000000000000000000000000000000"))
 
 ## checking with merkletreejs
 checking with merkletreejs: [website](https://lab.miguelmota.com/merkletreejs/example/)
+
+## thanks
+- modify [pymerkletools](https://github.com/Tierion/pymerkletools) code to support sortPairs

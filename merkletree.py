@@ -5,8 +5,8 @@
 """
 
 import sha3
-from merkletools import MerkleTools
 from web3 import Web3
+from lib import MerkleTools
 
 
 class WhiteList:
@@ -18,11 +18,11 @@ class WhiteList:
 
     def _add_leaf(self):
         self.mt.add_leaf(
-            sorted([
+            [
                 Web3.solidity_keccak(["address"], [Web3.to_checksum_address(key)]).hex()[2:]
                 for key in self.white_list
-            ])
-            , False)
+            ]
+        )
         self.mt.make_tree()
 
     def get_root(self):
@@ -42,6 +42,9 @@ class WhiteList:
 
     def _get_proof(self, _byte: bytearray):
         return self._format_proof(self.mt.get_proof(self.mt.leaves.index(_byte)))
+
+    def get_leafs(self):
+        return [lf.hex() for lf in self.mt.leaves]
 
     @staticmethod
     def _format_proof(proofs: []):
@@ -68,9 +71,8 @@ if __name__ == '__main__':
         "0x0000000000000000000000000000000000000003",
         "0x0000000000000000000000000000000000000004",
     ])
-    print(wl.get_root())
+    print("ROOT", wl.get_root())
     print(wl.get_proof_by_address("0x0000000000000000000000000000000000000000"))
-    print(wl.get_proof_by_index(0))
     wl.check_all()
-
+    print("leafs", wl.get_leafs())
 
