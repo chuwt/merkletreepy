@@ -18,3 +18,6 @@ print(wl.get_root())
 # get proof of given address
 print(wl.get_proof_by_address("0x0000000000000000000000000000000000000000"))
 ```
+
+## checking with merkletreejs
+checking with merkletreejs: [website](https://lab.miguelmota.com/merkletreejs/example/)
